@@ -6,9 +6,9 @@ namespace Day1
     {
         private readonly Sonar _sonar;
 
-        public Service()
+        public Service(SonarData sonarData)
         {
-            _sonar = new Sonar(new SonarData());
+            _sonar = new Sonar(sonarData);
         }
 
         public object RunTask1() => _sonar.GetIncreasesCount();

@@ -1,4 +1,5 @@
 ﻿using Common;
+using Day1;
 using Day2;
 
 namespace Application
@@ -9,7 +10,7 @@ namespace Application
         {
             var services = new IService[]
             {
-                new Day1.Service(),
+                new Day1.Service(new SonarData()),
                 new Day2.Service(new NavigationData())
             };
 
