@@ -1,6 +1,6 @@
 ﻿namespace Day2
 {
-    internal enum Direction
+    public enum Direction
     {
         Forward, Up, Down
     }

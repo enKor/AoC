@@ -3,28 +3,35 @@ using System.Linq;
 
 namespace Day1
 {
-    internal class Sonar
+    public class Sonar
     {
-        public static int GetIncreasesCount()
+        private readonly SonarData _sonarData;
+
+        public Sonar(SonarData sonarData)
         {
-            var measurements = SonarData.GetMeasurements();
+            _sonarData = sonarData;
+        }
+
+        public int GetIncreasesCount()
+        {
+            var measurements = _sonarData.GetMeasurements();
 
             return GetIncreaseCountCommon(measurements);
         }
 
-        public static int GetIncreasesWithNoiseCount()
+        public int GetIncreasesWithNoiseCount()
         {
-            var measurements = SonarData.GetMeasurements();
+            var measurements = _sonarData.GetMeasurements();
             var windows = GetWindows(measurements);
 
             return GetIncreaseCountCommon(windows.Select(x => x.sum).ToArray());
         }
 
-        private static int GetIncreaseCountCommon(int[] measurements)
+        private static int GetIncreaseCountCommon(IReadOnlyList<int> measurements)
         {
             var increasesCount = 0;
 
-            for (var i = 0; i < measurements.Length; i++)
+            for (var i = 0; i < measurements.Count; i++)
             {
                 if (i == 0) continue;
 
@@ -34,19 +41,15 @@ namespace Day1
             return increasesCount;
         }
 
-        private static List<(int grp, int sum)> GetWindows(int[] measurements)
+        private static IEnumerable<(int grp, int sum)> GetWindows(IReadOnlyList<int> measurements)
         {
-            var groups = new List<int>();
+            var groupIds = new List<int>();
             var windows = new List<(int grp, int depth)>();
 
-            for (var i = 0; i < measurements.Length; i++)
+            for (var i = 0; i < measurements.Count; i++)
             {
-                groups.Add(i);
-
-                foreach (var group in groups.TakeLast(3))
-                {
-                    windows.Add((group, measurements[i]));
-                }
+                groupIds.Add(i);
+                windows.AddRange(groupIds.TakeLast(3).Select(groupId => (groupId, measurements[i])));
             }
 
             return windows

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Day2
 {
-    internal class Submarine
+    public class Submarine
     {
         private readonly Vector[] _movements;
 
@@ -29,23 +29,23 @@ namespace Day2
         {
             int forward = 0, depth = 0, aim = 0;
 
-            foreach (var movement in _movements)
+            foreach (var (direction, value) in _movements)
             {
-                if (movement.Dir == Direction.Forward)
+                if (direction == Direction.Forward)
                 {
-                    forward += movement.Value;
+                    forward += value;
                     if (aim != 0)
                     {
-                        depth += movement.Value * aim;
+                        depth += value * aim;
                     }
                 }
-                else if (movement.Dir==Direction.Down)
+                else if (direction==Direction.Down)
                 {
-                    aim += movement.Value;
+                    aim += value;
                 }
-                else if (movement.Dir == Direction.Up)
+                else if (direction == Direction.Up)
                 {
-                    aim -= movement.Value;
+                    aim -= value;
                 }
             }
 

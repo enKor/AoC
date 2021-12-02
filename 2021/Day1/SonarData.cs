@@ -3,15 +3,15 @@ using System.Linq;
 
 namespace Day1
 {
-    internal static class SonarData
+    public class SonarData
     {
-        public static int[] GetMeasurements() =>
-            DepthMeasurements
+        public int[] GetMeasurements() =>
+            DepthMeasurements()
                 .Split("\r\n", StringSplitOptions.RemoveEmptyEntries)
                 .Select(x => Convert.ToInt32(x))
                 .ToArray();
 
-        private const string DepthMeasurements = @"156
+        public virtual string DepthMeasurements() => @"156
 153
 163
 168

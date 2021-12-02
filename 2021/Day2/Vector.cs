@@ -1,4 +1,4 @@
 ﻿namespace Day2
 {
-    internal record Vector (Direction Dir, int Value);
+    public record Vector (Direction Dir, int Value);
 }
