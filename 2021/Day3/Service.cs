@@ -4,21 +4,15 @@ namespace Day3
 {
     public class Service : IService
     {
-        //private readonly Submarine _submarine;
+        private readonly DiagnosticDevice _diagnosticDevice;
 
-        public Service(/*NavigationData navigationData*/)
+        public Service(DiagnosticsData data)
         {
-            //_submarine = new Submarine(navigationData.GetMovements());
+            _diagnosticDevice = new DiagnosticDevice(data.GetBinaries());
         }
 
-        public object RunTask1()
-        {
-            return 0;
-        }
+        public object RunTask1() => _diagnosticDevice.GetConsumption();
 
-        public object RunTask2()
-        {
-            return 0;
-        }
+        public object RunTask2() => 0;
     }
 }
