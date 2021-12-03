@@ -14,6 +14,7 @@ namespace Application
                 new Day1.Service(new SonarData()),
                 new Day2.Service(new NavigationData()),
                 new Day3.Service(new DiagnosticsData()),
+                new Day4.Service(/*new DiagnosticsData()*/),
             };
 
             for (var i = 0; i < services.Length; i++)
