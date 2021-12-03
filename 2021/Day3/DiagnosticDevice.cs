@@ -70,7 +70,7 @@ namespace Day3
             if (list.Count == 1) 
                 return list.First();
 
-            return null;
+            return GetCascadedByte(list, freq);
         }
 
         private static char GetChar(IEnumerable<string> bytes, int position, Extensions.Freq freq) =>
