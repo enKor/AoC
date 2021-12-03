@@ -15,7 +15,7 @@ namespace Tests
             _result1 = result1;
             _result2 = result2;
         }
-
+        
         [Fact]
         public void Task1Test()
         {

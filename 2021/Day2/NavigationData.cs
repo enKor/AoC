@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Linq;
+using Common;
 
 namespace Day2
 {
-    public class NavigationData
+    public class NavigationData : IData
     {
-        public  Vector[] GetMovements() =>
-            Movements()
+        public string Source { get; set; }
+
+        public NavigationData()
+        {
+            Source = Movements();
+        }
+
+        public Vector[] GetMovements() =>
+            Source
                 .Split("\r\n", StringSplitOptions.RemoveEmptyEntries)
                 .Select(GetVector)
                 .ToArray();
@@ -18,7 +26,7 @@ namespace Day2
             return new Vector(Enum.Parse<Direction>(split[0], true), Convert.ToInt32(split[1]));
         }
 
-        public virtual string Movements()=> @"forward 5
+        private static string Movements() => @"forward 5
 down 8
 down 6
 down 7
@@ -1018,5 +1026,6 @@ forward 6
 forward 3
 forward 3
 forward 7";
+
     }
 }

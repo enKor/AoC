@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Linq;
+using Common;
 
 namespace Day1
 {
-    public class SonarData
+    public class SonarData:IData
     {
+        public string Source { get; set; }
+    
+        public SonarData()
+        {
+            Source = DepthMeasurements();
+        }
+
         public int[] GetMeasurements() =>
-            DepthMeasurements()
+            Source
                 .Split("\r\n", StringSplitOptions.RemoveEmptyEntries)
                 .Select(x => Convert.ToInt32(x))
                 .ToArray();
 
-        public virtual string DepthMeasurements() => @"156
+        private static string DepthMeasurements() => @"156
 153
 163
 168
