@@ -57,20 +57,22 @@ namespace Day3
 
         private static string GetCascadedByte(List<string> bytes, Extensions.Freq freq)
         {
-            var list = bytes;
-
-            for (var i = 0; i < list[0].Length; i++)
+            while (true)
             {
-                if (list.Count == 1) break;
+                var list = bytes;
 
-                var b = GetChar(list, i, freq);
-                list = list.Where(x => x[i] == b).ToList();
+                for (var i = 0; i < list[0].Length; i++)
+                {
+                    if (list.Count == 1) break;
+
+                    var b = GetChar(list, i, freq);
+                    list = list.Where(x => x[i] == b).ToList();
+                }
+
+                if (list.Count == 1) return list.First();
+
+                bytes = list;
             }
-
-            if (list.Count == 1) 
-                return list.First();
-
-            return GetCascadedByte(list, freq);
         }
 
         private static char GetChar(IEnumerable<string> bytes, int position, Extensions.Freq freq) =>
