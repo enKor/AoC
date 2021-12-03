@@ -13,6 +13,6 @@ namespace Day3
 
         public object RunTask1() => _diagnosticDevice.GetConsumption();
 
-        public object RunTask2() => 0;
+        public object RunTask2() => _diagnosticDevice.GetLifeSupportRating();
     }
 }

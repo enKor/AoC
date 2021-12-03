@@ -7,17 +7,30 @@ namespace Day3
     {
         public enum Freq
         {
-            Min,
-            Max
+            LeastCommon,
+            MostCommon
         }
 
-        public static IOrderedEnumerable<(char, int)> OrderBy(this IEnumerable<(char, int)> enumerable, Freq freq)
+        public static char GetFrequencyChar(this IEnumerable<(char, int)> enumeration, Freq freq)
         {
-            return freq switch
+            var query= freq switch
             {
-                Freq.Max => enumerable.OrderByDescending(x => x.Item2),
-                Freq.Min => enumerable.OrderBy(x => x.Item2)
+                Freq.MostCommon => enumeration.OrderByDescending(x => x.Item2),
+                Freq.LeastCommon => enumeration.OrderBy(x => x.Item2)
             };
+
+            var orderedQuery = query.ToList();
+
+            if (orderedQuery.Select(x => x.Item2).Distinct().Count() == 1)
+            {
+                return freq == Freq.MostCommon
+                    ? "1"[0]
+                    : "0"[0];
+            }
+
+            return orderedQuery
+                .Select(x => x.Item1)
+                .First();
         }
 
     }

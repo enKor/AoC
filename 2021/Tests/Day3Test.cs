@@ -5,7 +5,7 @@ namespace Tests
     public class Day3Test : TestBase
     {
         public Day3Test() 
-            : base(new Service(new DiagnosticsData{Source = TestData}), 198, -1)
+            : base(new Service(new DiagnosticsData{Source = TestData}), 198, 230)
         {
         }
 
