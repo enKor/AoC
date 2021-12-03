@@ -105,3 +105,5 @@ C:\Users\prochazka\source\repos\AoC\2021\Tests\obj\Debug\net5.0\Tests.dll
 C:\Users\prochazka\source\repos\AoC\2021\Tests\obj\Debug\net5.0\ref\Tests.dll
 C:\Users\prochazka\source\repos\AoC\2021\Tests\obj\Debug\net5.0\Tests.pdb
 C:\Users\prochazka\source\repos\AoC\2021\Tests\obj\Debug\net5.0\Tests.genruntimeconfig.cache
+C:\Users\prochazka\source\repos\AoC\2021\Tests\bin\Debug\net5.0\Day3.dll
+C:\Users\prochazka\source\repos\AoC\2021\Tests\bin\Debug\net5.0\Day3.pdb

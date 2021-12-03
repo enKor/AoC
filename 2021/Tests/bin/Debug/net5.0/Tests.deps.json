@@ -10,6 +10,7 @@
         "dependencies": {
           "Day1": "1.0.0",
           "Day2": "1.0.0",
+          "Day3": "1.0.0",
           "Microsoft.NET.Test.Sdk": "16.9.4",
           "coverlet.collector": "3.0.2",
           "xunit": "2.4.1",
@@ -1111,6 +1112,14 @@
         "runtime": {
           "Day2.dll": {}
         }
+      },
+      "Day3/1.0.0": {
+        "dependencies": {
+          "Common": "1.0.0"
+        },
+        "runtime": {
+          "Day3.dll": {}
+        }
       }
     }
   },
@@ -1775,6 +1784,11 @@
       "sha512": ""
     },
     "Day2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Day3/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

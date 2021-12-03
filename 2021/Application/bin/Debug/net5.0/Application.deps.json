@@ -9,7 +9,8 @@
       "Application/1.0.0": {
         "dependencies": {
           "Day1": "1.0.0",
-          "Day2": "1.0.0"
+          "Day2": "1.0.0",
+          "Day3": "1.0.0"
         },
         "runtime": {
           "Application.dll": {}
@@ -35,6 +36,14 @@
         "runtime": {
           "Day2.dll": {}
         }
+      },
+      "Day3/1.0.0": {
+        "dependencies": {
+          "Common": "1.0.0"
+        },
+        "runtime": {
+          "Day3.dll": {}
+        }
       }
     }
   },
@@ -55,6 +64,11 @@
       "sha512": ""
     },
     "Day2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Day3/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

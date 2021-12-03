@@ -1706,6 +1706,19 @@
         "runtime": {
           "bin/placeholder/Day2.dll": {}
         }
+      },
+      "Day3/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Day3.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Day3.dll": {}
+        }
       }
     }
   },
@@ -5957,12 +5970,18 @@
       "type": "project",
       "path": "../Day2/Day2.csproj",
       "msbuildProject": "../Day2/Day2.csproj"
+    },
+    "Day3/1.0.0": {
+      "type": "project",
+      "path": "../Day3/Day3.csproj",
+      "msbuildProject": "../Day3/Day3.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Day1 >= 1.0.0",
       "Day2 >= 1.0.0",
+      "Day3 >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
       "coverlet.collector >= 3.0.2",
       "xunit >= 2.4.1",
@@ -6011,6 +6030,9 @@
             },
             "C:\\Users\\prochazka\\source\\repos\\AoC\\2021\\Day2\\Day2.csproj": {
               "projectPath": "C:\\Users\\prochazka\\source\\repos\\AoC\\2021\\Day2\\Day2.csproj"
+            },
+            "C:\\Users\\prochazka\\source\\repos\\AoC\\2021\\Day3\\Day3.csproj": {
+              "projectPath": "C:\\Users\\prochazka\\source\\repos\\AoC\\2021\\Day3\\Day3.csproj"
             }
           }
         }

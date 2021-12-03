@@ -21,3 +21,5 @@ C:\Users\prochazka\source\repos\AoC\2021\Application\obj\Debug\net5.0\Applicatio
 C:\Users\prochazka\source\repos\AoC\2021\Application\obj\Debug\net5.0\ref\Application.dll
 C:\Users\prochazka\source\repos\AoC\2021\Application\obj\Debug\net5.0\Application.pdb
 C:\Users\prochazka\source\repos\AoC\2021\Application\obj\Debug\net5.0\Application.genruntimeconfig.cache
+C:\Users\prochazka\source\repos\AoC\2021\Application\bin\Debug\net5.0\Day3.dll
+C:\Users\prochazka\source\repos\AoC\2021\Application\bin\Debug\net5.0\Day3.pdb

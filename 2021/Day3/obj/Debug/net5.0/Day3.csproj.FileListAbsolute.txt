@@ -1,0 +1,15 @@
+C:\Users\prochazka\source\repos\AoC\2021\Day3\bin\Debug\net5.0\Day3.deps.json
+C:\Users\prochazka\source\repos\AoC\2021\Day3\bin\Debug\net5.0\Day3.dll
+C:\Users\prochazka\source\repos\AoC\2021\Day3\bin\Debug\net5.0\ref\Day3.dll
+C:\Users\prochazka\source\repos\AoC\2021\Day3\bin\Debug\net5.0\Day3.pdb
+C:\Users\prochazka\source\repos\AoC\2021\Day3\bin\Debug\net5.0\Common.dll
+C:\Users\prochazka\source\repos\AoC\2021\Day3\bin\Debug\net5.0\Common.pdb
+C:\Users\prochazka\source\repos\AoC\2021\Day3\obj\Debug\net5.0\Day3.csproj.AssemblyReference.cache
+C:\Users\prochazka\source\repos\AoC\2021\Day3\obj\Debug\net5.0\Day3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\prochazka\source\repos\AoC\2021\Day3\obj\Debug\net5.0\Day3.AssemblyInfoInputs.cache
+C:\Users\prochazka\source\repos\AoC\2021\Day3\obj\Debug\net5.0\Day3.AssemblyInfo.cs
+C:\Users\prochazka\source\repos\AoC\2021\Day3\obj\Debug\net5.0\Day3.csproj.CoreCompileInputs.cache
+C:\Users\prochazka\source\repos\AoC\2021\Day3\obj\Debug\net5.0\Day3.csproj.CopyComplete
+C:\Users\prochazka\source\repos\AoC\2021\Day3\obj\Debug\net5.0\Day3.dll
+C:\Users\prochazka\source\repos\AoC\2021\Day3\obj\Debug\net5.0\ref\Day3.dll
+C:\Users\prochazka\source\repos\AoC\2021\Day3\obj\Debug\net5.0\Day3.pdb
