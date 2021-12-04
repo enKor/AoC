@@ -1,8 +1,4 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=52ed68ff_002D7dd7_002D417c_002Db7ce_002D9e1ed902ba5e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Day1Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::685EF599-C78B-4D42-BE37-40CBF5F7EB54::net5.0::Tests.Day1Test&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::685EF599-C78B-4D42-BE37-40CBF5F7EB54::net5.0::Tests.Day2Test&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::685EF599-C78B-4D42-BE37-40CBF5F7EB54::net5.0::Tests.Day3Test&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Project Location="C:\Users\prochazka\source\repos\AoC\2021\Tests" Presentation="&amp;lt;Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -5,7 +5,7 @@ namespace Tests
     public class Day4Test : TestBase
     {
         public Day4Test() 
-            : base(new Service(new BingoData{Source = TestData}), 4512, -1)
+            : base(new Service(new BingoData{Source = TestData}), 4512, 1924)
         {
         }
 
