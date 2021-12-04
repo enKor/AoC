@@ -4,15 +4,15 @@ namespace Day4
 {
     public class Service : IService
     {
-        //private readonly DiagnosticDevice _diagnosticDevice;
+        private readonly BingoData _data;
 
-        //public Service(DiagnosticsData data)
-        //{
-        //    _diagnosticDevice = new DiagnosticDevice(data.GetBinaries());
-        //}
+        public Service(BingoData data)
+        {
+            _data = data;
+        }
 
-        public object RunTask1() => null;
+        public object RunTask1() => new Bingo(_data.GetNumbers(), _data.GetBoards()).GetWinnerBoard();
 
-        public object RunTask2() => null;
+        public object RunTask2() => new Bingo(_data.GetNumbers(), _data.GetBoards()).GetLooserBoard();
     }
 }
