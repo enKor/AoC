@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Day3
+namespace Business.Day3
 {
     public class DiagnosticDevice
     {

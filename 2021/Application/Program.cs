@@ -1,8 +1,8 @@
-﻿using Common;
-using Day1;
-using Day2;
-using Day3;
-using Day4;
+﻿using Business;
+using Business.Day1;
+using Business.Day2;
+using Business.Day3;
+using Business.Day4;
 
 namespace Application
 {
@@ -12,10 +12,11 @@ namespace Application
         {
             var services = new IService[]
             {
-                new Day1.Service(new SonarData()),
-                new Day2.Service(new NavigationData()),
-                new Day3.Service(new DiagnosticsData()),
-                new Day4.Service(new BingoData()),
+                new Business.Day1.Service(new SonarData()),
+                new Business.Day2.Service(new NavigationData()),
+                new Business.Day3.Service(new DiagnosticsData()),
+                new Business.Day4.Service(new BingoData()),
+                new Business.Day5.Service(),
             };
 
             for (var i = 0; i < services.Length; i++)

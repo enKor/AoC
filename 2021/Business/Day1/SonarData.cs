@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Common;
 
-namespace Day1
+namespace Business.Day1
 {
     public class SonarData:IData
     {

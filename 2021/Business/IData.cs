@@ -1,4 +1,4 @@
-﻿namespace Common
+﻿namespace Business
 {
     public interface IData
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Day4
+namespace Business.Day4
 {
     public class Board
     {

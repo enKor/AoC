@@ -1,6 +1,4 @@
-﻿using Common;
-
-namespace Day1
+﻿namespace Business.Day1
 {
     public class Service : IService
     {

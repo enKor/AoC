@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Day3
+namespace Business.Day3
 {
     public static class Extensions
     {

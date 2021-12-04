@@ -1,4 +1,4 @@
-using Day1;
+using Business.Day1;
 
 namespace Tests
 {

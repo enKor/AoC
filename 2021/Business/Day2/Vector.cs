@@ -1,4 +1,4 @@
-﻿namespace Day2
+﻿namespace Business.Day2
 {
     public record Vector (Direction Dir, int Value);
 }

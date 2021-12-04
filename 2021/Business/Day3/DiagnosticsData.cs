@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Common;
 
-namespace Day3
+namespace Business.Day3
 {
     public class DiagnosticsData : IData
     {

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Common;
 
-namespace Day2
+namespace Business.Day2
 {
     public class NavigationData : IData
     {

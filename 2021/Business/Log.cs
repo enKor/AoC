@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Common
+namespace Business
 {
     public static class Log
     {

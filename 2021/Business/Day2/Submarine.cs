@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
 using System.Linq;
 
-namespace Day2
+namespace Business.Day2
 {
     public class Submarine
     {
