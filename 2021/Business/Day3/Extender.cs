@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Business.Day3
 {
-    public static class Extensions
+    public static class Extender
     {
         public enum Freq
         {

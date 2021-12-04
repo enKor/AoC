@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Business.Day1
 {
@@ -12,11 +11,7 @@ namespace Business.Day1
             Source = DepthMeasurements();
         }
 
-        public int[] GetMeasurements() =>
-            Source
-                .Split("\r\n", StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => Convert.ToInt32(x))
-                .ToArray();
+        public int[] GetMeasurements() => Source.SelectNumbers().ToArray();
 
         private static string DepthMeasurements() => @"156
 153

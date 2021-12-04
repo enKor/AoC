@@ -6,12 +6,12 @@ namespace Business.Day4
     public class Bingo
     {
         private readonly IEnumerable<Board> _boards;
-        private readonly int[] _numbers;
+        private readonly IEnumerable<int> _numbers;
 
         public Bingo(IEnumerable<int> numbers, IEnumerable<Board> boards)
         {
             _boards = boards;
-            _numbers = numbers.ToArray();
+            _numbers = numbers;
         }
 
         public int GetWinnerBoard()
@@ -49,8 +49,7 @@ namespace Business.Day4
             }
 
             var looser = list.Last();
-            var result = CalculateResult(looser.Item1, looser.Item2);
-            return result;
+            return CalculateResult(looser.Item1, looser.Item2);
         }
 
         private static int CalculateResult(Board board, int number)

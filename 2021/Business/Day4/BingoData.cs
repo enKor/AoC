@@ -17,8 +17,7 @@ namespace Business.Day4
             Source
                 .Split("\r\n", StringSplitOptions.RemoveEmptyEntries)
                 .First()
-                .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => Convert.ToInt32(x));
+                .SelectNumbers(",");
 
         public IEnumerable<Board> GetBoards()
         {
@@ -37,8 +36,7 @@ namespace Business.Day4
                 }
 
                 var lineNumbers = line
-                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                    .Select(x => Convert.ToInt32(x))
+                    .SelectNumbers(" ")
                     .ToArray();
                 
                 boards.Last().AddRow(lineNumbers);
