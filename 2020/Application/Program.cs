@@ -10,6 +10,7 @@ namespace Application
         private static readonly IService[] Services = {
             new Business.Day1.Service(new Business.Day1.LiftData()),
             new Business.Day2.Service(new Business.Day2.PresentsData()),
+            new Business.Day3.Service(new Business.Day3.NavigationData()),
         };
 
         private static void Main(string[] args)
