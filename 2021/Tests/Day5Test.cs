@@ -1,13 +1,37 @@
 using Business.Day5;
+using Xunit;
 
 namespace Tests
 {
     public class Day5Test : TestBase
     {
-        public Day5Test() 
-            : base(new Service(new FloorData{Source=TestData}), 5, 12)
+        public Day5Test()
+            : base(new Service(new FloorData { Source = TestData }), 5, 12)
         {
         }
+
+        [Theory]
+        [MemberData(nameof(VectorData))]
+        public void IsDiagonal_Method_Test(Vector2 a, Vector2 b, bool expectedResult)
+        {
+            var result = Service.IsDiagonal(a, b);
+            Assert.True(result == expectedResult);
+        }
+
+        public static TheoryData<Vector2, Vector2, bool> VectorData =
+            new()
+            {
+                {new Vector2(0, 8), new Vector2(9, 0), false},
+                {new Vector2(0, 8), new Vector2(8, 0), true},
+                {new Vector2(2, 2), new Vector2(1, 1), true},
+                {new Vector2(2, 2), new Vector2(1, 0), false},
+                {new Vector2(3, 4), new Vector2(17, 0), false},
+                {new Vector2(0, 8), new Vector2(0, 6), false},
+                {new Vector2(1, 8), new Vector2(1, 9), false},
+                {new Vector2(5, 5), new Vector2(5, 5), true},
+                {new Vector2(5, 5), new Vector2(7, 3), true}
+            };
+
 
         private const string TestData = @"0,9 -> 5,9
 8,0 -> 0,8

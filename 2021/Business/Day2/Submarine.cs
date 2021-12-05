@@ -5,9 +5,9 @@ namespace Business.Day2
 {
     public class Submarine
     {
-        private readonly Vector[] _movements;
+        private readonly Movement[] _movements;
 
-        public Submarine(Vector[] movements)
+        public Submarine(Movement[] movements)
         {
             _movements = movements;
         }

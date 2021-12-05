@@ -1,4 +1,5 @@
 using Business.Day1;
+using Xunit;
 
 namespace Tests
 {
@@ -7,6 +8,15 @@ namespace Tests
         public Day1Test()
             : base(new Service(new SonarData { Source = TestData }), 7, 5)
         {
+        }
+
+        [Fact]
+        public void GetIncreaseCountCommon_Method_Test()
+        {
+            var sonar = new SonarData { Source = TestData };
+            var result = Sonar.GetIncreaseCountCommon(sonar.GetMeasurements());
+         
+            Assert.Equal(7, result);
         }
 
         private const string TestData = @"199

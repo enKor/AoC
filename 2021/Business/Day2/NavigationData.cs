@@ -12,17 +12,17 @@ namespace Business.Day2
             Source = Movements();
         }
 
-        public Vector[] GetMovements() =>
+        public Movement[] GetMovements() =>
             Source
                 .Split("\r\n", StringSplitOptions.RemoveEmptyEntries)
                 .Select(GetVector)
                 .ToArray();
 
-        private static Vector GetVector(string vectorString)
+        private static Movement GetVector(string vectorString)
         {
             var split = vectorString.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-            return new Vector(Enum.Parse<Direction>(split[0], true), Convert.ToInt32(split[1]));
+            return new Movement(Enum.Parse<Direction>(split[0], true), Convert.ToInt32(split[1]));
         }
 
         private static string Movements() => @"forward 5

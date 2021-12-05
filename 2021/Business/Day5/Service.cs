@@ -39,7 +39,13 @@ namespace Business.Day5
             return CountDangerous(activeVents);
         }
 
-        private static bool IsDiagonal(Vector2 a, Vector2 b) => Math.Abs(a.X - b.X) == Math.Abs(a.Y - b.Y);
+        /// <summary>
+        /// Checks if points are positioned in 45°
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        internal static bool IsDiagonal(Vector2 a, Vector2 b) => Math.Abs(a.X - b.X) == Math.Abs(a.Y - b.Y);
         
         private static bool Compare(int a, int b, int n) => a < b ? n <= b : n >= b;
         

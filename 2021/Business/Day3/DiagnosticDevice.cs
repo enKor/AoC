@@ -42,7 +42,7 @@ namespace Business.Day3
         }
 
 
-        private static string GetByte(IReadOnlyList<string> bytes, Extender.Freq freq)
+        internal static string GetByte(IReadOnlyList<string> bytes, Extender.Freq freq)
         {
             var sb = new StringBuilder();
 
@@ -55,7 +55,7 @@ namespace Business.Day3
             return sb.ToString();
         }
 
-        private static string GetCascadedByte(List<string> bytes, Extender.Freq freq)
+        internal static string GetCascadedByte(List<string> bytes, Extender.Freq freq)
         {
             while (true)
             {
@@ -75,7 +75,7 @@ namespace Business.Day3
             }
         }
 
-        private static char GetChar(IEnumerable<string> bytes, int position, Extender.Freq freq) =>
+        internal static char GetChar(IEnumerable<string> bytes, int position, Extender.Freq freq) =>
             bytes
                 .GroupBy(x => x[position])
                 .Select(x => (x.Key, x.Count()))

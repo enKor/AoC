@@ -17,14 +17,14 @@ namespace Tests
         }
         
         [Fact]
-        public void Task1Test()
+        public void RunTask1_Method_Test()
         {
             var result = _service.RunTask1();
             Assert.Equal(_result1, result);
         }
 
         [Fact]
-        public void Task2Test()
+        public void RunTask2_Method_Test()
         {
             var result = _service.RunTask2();
             Assert.Equal(_result2, result);

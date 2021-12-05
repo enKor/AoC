@@ -27,7 +27,7 @@ namespace Business.Day1
             return GetIncreaseCountCommon(windows.Select(x => x.sum).ToArray());
         }
 
-        private static int GetIncreaseCountCommon(IReadOnlyList<int> measurements)
+        internal static int GetIncreaseCountCommon(IReadOnlyList<int> measurements)
         {
             var increasesCount = 0;
 
