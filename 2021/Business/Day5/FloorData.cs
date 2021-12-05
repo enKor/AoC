@@ -18,10 +18,13 @@ namespace Business.Day5
                 .Split("\r\n", StringSplitOptions.RemoveEmptyEntries)
                 .Select(x => x.Split("->", StringSplitOptions.RemoveEmptyEntries))
                 .Select(x => x.Select(o => o.SelectNumbers(",")))
-                .Select(o => new VentsLine(
-                    new Vector2(o.First().First(), o.First().Last()),
-                    new Vector2(o.Last().First(), o.Last().Last()))
-                );
+                .Select(e =>
+                {
+                    var o = e.ToArray();
+                    return new VentsLine(
+                        new Vector2(o.First().First(), o.First().Last()),
+                        new Vector2(o.Last().First(), o.Last().Last()));
+                });
 
         private const string SampleData = @"777,778 -> 777,676
 500,510 -> 378,510
