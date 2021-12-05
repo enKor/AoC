@@ -3,6 +3,7 @@ using Business.Day1;
 using Business.Day2;
 using Business.Day3;
 using Business.Day4;
+using Business.Day5;
 
 namespace Application
 {
@@ -16,7 +17,7 @@ namespace Application
                 new Business.Day2.Service(new NavigationData()),
                 new Business.Day3.Service(new DiagnosticsData()),
                 new Business.Day4.Service(new BingoData()),
-                new Business.Day5.Service(),
+                new Business.Day5.Service(new FloorData()),
             };
 
             for (var i = 0; i < services.Length; i++)
