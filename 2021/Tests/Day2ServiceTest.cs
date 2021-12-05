@@ -2,9 +2,9 @@ using Business.Day2;
 
 namespace Tests
 {
-    public class Day2Test : TestBase
+    public class Day2ServiceTest : ServiceTestBase
     {
-        public Day2Test() 
+        public Day2ServiceTest() 
             : base(new Service(new NavigationData { Source = TestData }), 150, 900)
         {
         }

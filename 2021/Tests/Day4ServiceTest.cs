@@ -2,9 +2,9 @@ using Business.Day4;
 
 namespace Tests
 {
-    public class Day4Test : TestBase
+    public class Day4ServiceTest : ServiceTestBase
     {
-        public Day4Test() 
+        public Day4ServiceTest() 
             : base(new Service(new BingoData{Source = TestData}), 4512, 1924)
         {
         }

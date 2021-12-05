@@ -3,9 +3,9 @@ using Xunit;
 
 namespace Tests
 {
-    public class Day5Test : TestBase
+    public class Day5ServiceTest : ServiceTestBase
     {
-        public Day5Test()
+        public Day5ServiceTest()
             : base(new Service(new FloorData { Source = TestData }), 5, 12)
         {
         }

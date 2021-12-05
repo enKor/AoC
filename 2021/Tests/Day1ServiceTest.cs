@@ -3,9 +3,9 @@ using Xunit;
 
 namespace Tests
 {
-    public class Day1Test : TestBase
+    public class Day1ServiceTest : ServiceTestBase
     {
-        public Day1Test()
+        public Day1ServiceTest()
             : base(new Service(new SonarData { Source = TestData }), 7, 5)
         {
         }
