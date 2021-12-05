@@ -11,6 +11,7 @@ namespace Application
             new Business.Day1.Service(new Business.Day1.LiftData()),
             new Business.Day2.Service(new Business.Day2.PresentsData()),
             new Business.Day3.Service(new Business.Day3.NavigationData()),
+            new Business.Day4.Service(new Business.Day4.Md5Data()),
         };
 
         private static void Main(string[] args)
