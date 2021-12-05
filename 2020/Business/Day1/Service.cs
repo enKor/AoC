@@ -11,6 +11,6 @@
 
         public object RunTask1() => _lift.GetFloor();
 
-        public object RunTask2() => -1;
+        public object RunTask2() => _lift.GetBasementMovementPosition();
     }
 }
