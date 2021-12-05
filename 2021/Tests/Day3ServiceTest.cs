@@ -45,6 +45,44 @@ namespace Tests
             Assert.Equal(expectedResult, result);
         }
 
+        [Fact]
+        public void GetEpsilon_Method_Test()
+        {
+            var device = new DiagnosticDevice(GetTestDataBinaries());
+            var result = device.GetEpsilon();
+
+            Assert.Equal(9, result);
+        }
+
+        [Fact]
+        public void GetGamma_Method_Test()
+        {
+            var device = new DiagnosticDevice(GetTestDataBinaries());
+            var result = device.GetGamma();
+
+            Assert.Equal(22, result);
+        }
+
+        [Fact]
+        public void Co2Rating_Method_Test()
+        {
+            var device = new DiagnosticDevice(GetTestDataBinaries());
+            var result = device.Co2Rating();
+
+            Assert.Equal(10, result);
+        }
+
+        [Fact]
+        public void O2Rating_Method_Test()
+        {
+            var device = new DiagnosticDevice(GetTestDataBinaries());
+            var result = device.O2Rating();
+
+            Assert.Equal(23, result);
+        }
+
+
+
         private static string[] GetTestDataBinaries() => new DiagnosticsData { Source = TestData }.GetBinaries();
 
         private const string TestData = @"00100

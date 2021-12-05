@@ -17,25 +17,25 @@ namespace Business.Day3
         public int GetConsumption() => GetEpsilon() * GetGamma();
         public int GetLifeSupportRating() => O2Rating() * Co2Rating();
 
-        private int GetGamma()
+        internal int GetGamma()
         {
             var s =  GetByte(_bytes, Extender.Freq.MostCommon);
             return Convert.ToInt32(s, 2);
         }
 
-        private int GetEpsilon()
+        internal int GetEpsilon()
         {
             var s = GetByte(_bytes, Extender.Freq.LeastCommon);
             return Convert.ToInt32(s, 2);
         }
 
-        private int O2Rating()
+        internal int O2Rating()
         {
             var s = GetCascadedByte(_bytes.ToList(), Extender.Freq.MostCommon);
             return Convert.ToInt32(s, 2);
         }
 
-        private int Co2Rating()
+        internal int Co2Rating()
         {
             var s = GetCascadedByte(_bytes.ToList(), Extender.Freq.LeastCommon);
             return Convert.ToInt32(s, 2);
