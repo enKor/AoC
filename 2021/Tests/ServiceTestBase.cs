@@ -6,10 +6,10 @@ namespace Tests
     public abstract class ServiceTestBase
     {
         private readonly IService _service;
-        private readonly int _result1;
-        private readonly int _result2;
+        private readonly long _result1;
+        private readonly long _result2;
 
-        protected ServiceTestBase(IService service, int result1, int result2)
+        protected ServiceTestBase(IService service, long result1, long result2)
         {
             _service = service;
             _result1 = result1;
