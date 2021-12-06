@@ -19,7 +19,7 @@ namespace Application
             new Business.Day3.Service(new DiagnosticsData()),
             new Business.Day4.Service(new BingoData()),
             new Business.Day5.Service(new FloorData()),
-            new Business.Day6.Service(new Day6Data()),
+            new Business.Day6.Service(new FishData()),
         };
 
         private static void Main(string[] args)
