@@ -1,4 +1,9 @@
 ﻿using Business;
+using Business.Day1;
+using Business.Day2;
+using Business.Day3;
+using Business.Day4;
+using Business.Day5;
 
 namespace Application
 {
@@ -8,10 +13,11 @@ namespace Application
     internal static class Program
     {
         private static readonly IService[] Services = {
-            new Business.Day1.Service(new Business.Day1.LiftData()),
-            new Business.Day2.Service(new Business.Day2.PresentsData()),
-            new Business.Day3.Service(new Business.Day3.NavigationData()),
-            new Business.Day4.Service(new Business.Day4.Md5Data()),
+            new Business.Day1.Service(new LiftData()),
+            new Business.Day2.Service(new PresentsData()),
+            new Business.Day3.Service(new NavigationData()),
+            new Business.Day4.Service(new Md5Data()),
+            new Business.Day5.Service(new LetterData()),
         };
 
         private static void Main(string[] args)
