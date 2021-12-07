@@ -14,8 +14,8 @@ namespace Business.Day3
             _bytes = bytes;
         }
 
-        public int GetConsumption() => GetEpsilon() * GetGamma();
-        public int GetLifeSupportRating() => O2Rating() * Co2Rating();
+        public long GetConsumption() => GetEpsilon() * GetGamma();
+        public long GetLifeSupportRating() => O2Rating() * Co2Rating();
 
         internal int GetGamma()
         {

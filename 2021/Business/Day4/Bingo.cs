@@ -14,7 +14,7 @@ namespace Business.Day4
             _numbers = numbers;
         }
 
-        public int GetWinnerBoard()
+        public long GetWinnerBoard()
         {
             foreach (var number in _numbers)
             {
@@ -31,7 +31,7 @@ namespace Business.Day4
             return -1;
         }
         
-        public int GetLooserBoard()
+        public long GetLooserBoard()
         {
             var list = new List<(Board,int)>();
             foreach (var number in _numbers)

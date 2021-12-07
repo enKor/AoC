@@ -1,11 +1,11 @@
-using Business.Day5;
+using Business.Day6;
 
 namespace Tests
 {
     public class Day6ServiceTest : ServiceTestBase
     {
         public Day6ServiceTest() 
-            : base(new Service(new FloorData{Source=TestData}), 5934, 26984457539)
+            : base(new Service(new FishData{Source=TestData}), 5934, 26984457539)
         {
         }
 

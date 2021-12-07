@@ -17,7 +17,7 @@ namespace Business.Day5
 
         public object RunTask2() => StrongVentsCount(true);
 
-        private int StrongVentsCount(bool includeDiagonals)
+        private long StrongVentsCount(bool includeDiagonals)
         {
             var activeVents = new List<Vector2>();
 

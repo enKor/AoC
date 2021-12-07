@@ -5,6 +5,7 @@ using Business.Day3;
 using Business.Day4;
 using Business.Day5;
 using Business.Day6;
+using Business.Day7;
 
 namespace Application
 {
@@ -20,6 +21,7 @@ namespace Application
             new Business.Day4.Service(new BingoData()),
             new Business.Day5.Service(new FloorData()),
             new Business.Day6.Service(new FishData()),
+            new Business.Day7.Service(new CrabData()),
         };
 
         private static void Main(string[] args)

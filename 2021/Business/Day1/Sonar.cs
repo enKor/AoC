@@ -12,14 +12,14 @@ namespace Business.Day1
             _sonarData = sonarData;
         }
 
-        public int GetIncreasesCount()
+        public long GetIncreasesCount()
         {
             var measurements = _sonarData.GetMeasurements();
 
             return GetIncreaseCountCommon(measurements);
         }
 
-        public int GetIncreasesWithNoiseCount()
+        public long GetIncreasesWithNoiseCount()
         {
             var measurements = _sonarData.GetMeasurements();
             var windows = GetWindows(measurements);
