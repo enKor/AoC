@@ -1,10 +1,10 @@
 ﻿namespace Business.Day2
 {
-    public class Service : IService
+    public class DivingService : IService
     {
         private readonly Submarine _submarine;
 
-        public Service(NavigationData navigationData)
+        public DivingService(NavigationData navigationData)
         {
             _submarine = new Submarine(navigationData.GetMovements());
         }

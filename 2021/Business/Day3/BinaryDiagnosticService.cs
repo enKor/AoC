@@ -1,10 +1,10 @@
 ﻿namespace Business.Day3
 {
-    public class Service : IService
+    public class BinaryDiagnosticService : IService
     {
         private readonly DiagnosticDevice _diagnosticDevice;
 
-        public Service(DiagnosticsData data)
+        public BinaryDiagnosticService(DiagnosticsData data)
         {
             _diagnosticDevice = new DiagnosticDevice(data.GetBinaries());
         }

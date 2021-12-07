@@ -1,10 +1,10 @@
 ﻿namespace Business.Day4
 {
-    public class Service : IService
+    public class GiantSquidService : IService
     {
         private readonly BingoData _data;
 
-        public Service(BingoData data)
+        public GiantSquidService(BingoData data)
         {
             _data = data;
         }

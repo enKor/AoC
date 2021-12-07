@@ -6,7 +6,7 @@ namespace Tests
     public class Day5ServiceTest : ServiceTestBase
     {
         public Day5ServiceTest()
-            : base(new Service(new FloorData { Source = TestData }), 5, 12)
+            : base(new HydrothermalVentureService(new FloorData { Source = TestData }), 5, 12)
         {
         }
 
@@ -14,7 +14,7 @@ namespace Tests
         [MemberData(nameof(VectorData))]
         public void IsDiagonal_Method_Test(Vector2 a, Vector2 b, bool expectedResult)
         {
-            var result = Service.IsDiagonal(a, b);
+            var result = HydrothermalVentureService.IsDiagonal(a, b);
             Assert.True(result == expectedResult);
         }
 

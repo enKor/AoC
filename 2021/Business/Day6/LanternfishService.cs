@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace Business.Day6
 {
-    public class Service : IService
+    public class LanternfishService : IService
     {
         private readonly FishData _data;
 
-        public Service(FishData data)
+        public LanternfishService(FishData data)
         {
             _data = data;
         }

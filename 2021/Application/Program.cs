@@ -6,6 +6,7 @@ using Business.Day4;
 using Business.Day5;
 using Business.Day6;
 using Business.Day7;
+using Business.Day8;
 
 namespace Application
 {
@@ -15,13 +16,14 @@ namespace Application
     internal static class Program
     {
         private static readonly IService[] Services = {
-            new Business.Day1.Service(new SonarData()),
-            new Business.Day2.Service(new NavigationData()),
-            new Business.Day3.Service(new DiagnosticsData()),
-            new Business.Day4.Service(new BingoData()),
-            new Business.Day5.Service(new FloorData()),
-            new Business.Day6.Service(new FishData()),
-            new Business.Day7.Service(new CrabData()),
+            new SonarSweepService(new SonarData()),
+            new DivingService(new NavigationData()),
+            new BinaryDiagnosticService(new DiagnosticsData()),
+            new GiantSquidService(new BingoData()),
+            new HydrothermalVentureService(new FloorData()),
+            new LanternfishService(new FishData()),
+            new WhalesTreacheryService(new CrabData()),
+            new Service(new Day8Data()),
         };
 
         private static void Main(string[] args)

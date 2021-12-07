@@ -1,10 +1,10 @@
 ﻿namespace Business.Day1
 {
-    public class Service : IService
+    public class SonarSweepService : IService
     {
         private readonly Sonar _sonar;
 
-        public Service(SonarData sonarData)
+        public SonarSweepService(SonarData sonarData)
         {
             _sonar = new Sonar(sonarData);
         }

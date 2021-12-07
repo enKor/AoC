@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace Business.Day5
 {
-    public class Service : IService
+    public class HydrothermalVentureService : IService
     {
         private readonly FloorData _data;
 
-        public Service(FloorData data)
+        public HydrothermalVentureService(FloorData data)
         {
             _data = data;
         }

@@ -6,7 +6,7 @@ namespace Tests
     public class Day1ServiceTest : ServiceTestBase
     {
         public Day1ServiceTest()
-            : base(new Service(new SonarData { Source = TestData }), 7, 5)
+            : base(new SonarSweepService(new SonarData { Source = TestData }), 7, 5)
         {
         }
 

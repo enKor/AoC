@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace Business.Day7
 {
-    public class Service : IService
+    public class WhalesTreacheryService : IService
     {
         private readonly CrabData _data;
 
-        public Service(CrabData data)
+        public WhalesTreacheryService(CrabData data)
         {
             _data = data;
         }
