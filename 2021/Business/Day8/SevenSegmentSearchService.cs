@@ -19,7 +19,7 @@ namespace Business.Day8
 
         public object RunTask2() => Sum();
 
-        private IEnumerable<Connection> GetData() => _data.GetTestData();
+        private IEnumerable<Connection> GetData() => _data.GetData();
 
         private long Count()
         {
@@ -84,6 +84,7 @@ namespace Business.Day8
             return total;
         }
 
+        // TODO In progress
         private static int GetDisplayNumber(string[] allNumbers, string[] uniqueNumbers,
             IEnumerable<string> orderedSignals, IEnumerable<string> foundUniqueNumbers, int[] numberLine,
             Connection connection)
