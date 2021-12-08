@@ -16,14 +16,14 @@ namespace Application
     internal static class Program
     {
         private static readonly IService[] Services = {
-            new SonarSweepService(new SonarData()),
-            new DivingService(new NavigationData()),
-            new BinaryDiagnosticService(new DiagnosticsData()),
-            new GiantSquidService(new BingoData()),
-            new HydrothermalVentureService(new FloorData()),
-            new LanternfishService(new FishData()),
-            new WhalesTreacheryService(new CrabData()),
-            new Service(new Day8Data()),
+            //new SonarSweepService(new SonarData()),
+            //new DivingService(new NavigationData()),
+            //new BinaryDiagnosticService(new DiagnosticsData()),
+            //new GiantSquidService(new BingoData()),
+            //new HydrothermalVentureService(new FloorData()),
+            //new LanternfishService(new FishData()),
+            //new WhalesTreacheryService(new CrabData()),
+            new SevenSegmentSearchService(new SignalData()),
         };
 
         private static void Main(string[] args)
