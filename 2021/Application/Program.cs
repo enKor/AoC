@@ -7,6 +7,7 @@ using Business.Day5;
 using Business.Day6;
 using Business.Day7;
 using Business.Day8;
+using Business.Day9;
 
 namespace Application
 {
@@ -24,6 +25,7 @@ namespace Application
             //new LanternfishService(new FishData()),
             //new WhalesTreacheryService(new CrabData()),
             new SevenSegmentSearchService(new SignalData()),
+            new SmokeBasinService(new MapData()),
         };
 
         private static void Main(string[] args)
