@@ -1,4 +1,6 @@
-﻿using Business;
+﻿using System;
+using System.Linq;
+using Business;
 using Business.Day1;
 using Business.Day10;
 using Business.Day2;
@@ -37,10 +39,11 @@ namespace Application
 
         private static void RunServices()
         {
-            for (var i = 0; i < Services.Length; i++)
+            foreach (var service in Services)
             {
-                Log.WriteResult(i + 1, 1, Services[i].RunTask1());
-                Log.WriteResult(i + 1, 2, Services[i].RunTask2());
+                var day = service.GetType().Namespace.Split(".", StringSplitOptions.RemoveEmptyEntries).Last();
+                Log.WriteResult(day, 1, service.RunTask1());
+                Log.WriteResult(day, 2, service.RunTask2());
             }
         }
     }
