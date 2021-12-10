@@ -13,7 +13,7 @@ namespace Business.Day9
         public string Source { get; set; }
 
         public int[][] GetMap() =>
-            SampleData
+            Source
                 .Split("\r\n", StringSplitOptions.RemoveEmptyEntries)
                 .Select(s => s.Select(c=>Convert.ToInt32(c.ToString())).ToArray())
                 .ToArray();

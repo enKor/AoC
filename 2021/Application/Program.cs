@@ -1,5 +1,6 @@
 ﻿using Business;
 using Business.Day1;
+using Business.Day10;
 using Business.Day2;
 using Business.Day3;
 using Business.Day4;
@@ -24,8 +25,9 @@ namespace Application
             //new HydrothermalVentureService(new FloorData()),
             //new LanternfishService(new FishData()),
             //new WhalesTreacheryService(new CrabData()),
-            new SevenSegmentSearchService(new SignalData()),
-            new SmokeBasinService(new MapData()),
+            //new SevenSegmentSearchService(new SignalData()),
+            //new SmokeBasinService(new MapData()),
+            new SyntaxScoringService(new ChunkData()),
         };
 
         private static void Main(string[] args)
