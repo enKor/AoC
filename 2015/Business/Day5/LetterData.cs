@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Business.Day5
 {
@@ -11,8 +12,8 @@ namespace Business.Day5
             Source = Input;
         }
 
-        public string[] GetWords() => Source.Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
-        
+        public IEnumerable<string> GetWords() => Source.Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
+
         private const string Input = @"uxcplgxnkwbdwhrp
 suerykeptdsutidb
 dmrtgdkaimrrwmej

@@ -9,8 +9,8 @@
             _letter = new Letter(data);
         }
 
-        public object RunTask1() => _letter.GetNiceWords().Length;
+        public object RunTask1() => _letter.GetNiceWords().Count;
 
-        public object RunTask2() => -1;//;
+        public object RunTask2() => _letter.GetNicerWords().Count;
     }
 }

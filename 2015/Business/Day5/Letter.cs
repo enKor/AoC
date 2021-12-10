@@ -13,23 +13,61 @@ namespace Business.Day5
             _data = data;
         }
 
-        public string[] GetNiceWords()
+        public List<string> GetNicerWords()
         {
-            var vovels = new[] { 'a','e','i','o','u'};
+            var niceWords = new List<string>();
+
+            foreach (var word in _data.GetWords())
+            {
+                var letters = word.ToCharArray();
+                var pairs = new List<(int idx, string str)>();
+
+                for (int i = 0; i < letters.Length - 1; i++)
+                {
+                    var s = new string(new[] {letters[i], letters[i + 1]});
+                    pairs.Add((i,s));
+                }
+
+                var hasRelevantPairs = pairs
+                    .GroupBy(s => s.str)
+                    .Any(x => x.Count() > 2
+                              || (x.Count() == 2
+                                  && x.Select(s => s.idx)
+                                      .Aggregate(0, (a, n) => Math.Abs(a - n)) > 1));
+
+                var hasTriade = false;
+                for (int i = 0; i < letters.Length - 2; i++)
+                {
+                    if (letters[i] == letters[i+2])
+                    {
+                        hasTriade = true;
+                        break;
+                    }
+                }
+
+                if (hasTriade && hasRelevantPairs) niceWords.Add(word);
+            }
+
+            return niceWords;
+        }
+
+        public List<string> GetNiceWords()
+        {
+            var vowels = new[] { 'a','e','i','o','u'};
             var niceWords = new List<string>();
 
             foreach (var word in _data.GetWords())
             {
                 var letters = word.ToCharArray();
 
-                var vovelsCount = 0;
+                var vowelsCount = 0;
                 foreach (var letter in letters)
                 {
-                    if (vovels.Contains(letter)) vovelsCount++;
-                    if (vovelsCount == 3) break;
+                    if (vowels.Contains(letter)) vowelsCount++;
+                    if (vowelsCount == 3) break;
                 }
 
-                if (vovelsCount < 3) continue;
+                if (vowelsCount < 3) continue;
 
                 var doubles = letters.Distinct().Select(x => new string(new[]{x,x}));
                 var hasDoubles = doubles.Any(d => word.Contains(d));
@@ -45,7 +83,7 @@ namespace Business.Day5
             }
 
 
-            return niceWords.ToArray();
+            return niceWords;
         }
     }
 }

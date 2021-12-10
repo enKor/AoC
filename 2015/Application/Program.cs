@@ -13,10 +13,10 @@ namespace Application
     internal static class Program
     {
         private static readonly IService[] Services = {
-            new Business.Day1.Service(new LiftData()),
-            new Business.Day2.Service(new PresentsData()),
-            new Business.Day3.Service(new NavigationData()),
-            new Business.Day4.Service(new Md5Data()),
+            //new Business.Day1.Service(new LiftData()),
+            //new Business.Day2.Service(new PresentsData()),
+            //new Business.Day3.Service(new NavigationData()),
+            //new Business.Day4.Service(new Md5Data()),
             new Business.Day5.Service(new LetterData()),
         };
 
