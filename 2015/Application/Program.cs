@@ -33,7 +33,7 @@ namespace Application
         {
             foreach (var service in Services)
             {
-                var day = service.GetType().Namespace.Split(".", StringSplitOptions.RemoveEmptyEntries).Last();
+                var day = service.GetType().Namespace!.Split(".", StringSplitOptions.RemoveEmptyEntries).Last();
                 Log.WriteResult(day, 1, service.RunTask1());
                 Log.WriteResult(day, 2, service.RunTask2());
             }
