@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Business.Day11
 {
-    public class Data : IData
+    public class OctopusFieldData : IData
     {
-        public Data()
+        public OctopusFieldData()
         {
             Source = SampleData;
         }

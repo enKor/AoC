@@ -5,7 +5,7 @@ namespace Tests
     public class Day11ServiceTest : ServiceTestBase
     {
         public Day11ServiceTest() 
-            : base(new Service(new Data{Source=TestData}), 1653, 195)
+            : base(new GlowingOctopussesService(new OctopusFieldData{Source=TestData}), 1653, 195)
         {
         }
 

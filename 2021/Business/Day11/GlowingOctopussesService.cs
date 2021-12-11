@@ -3,13 +3,13 @@ using System.Linq;
 
 namespace Business.Day11
 {
-    public class Service : IService
+    public class GlowingOctopussesService : IService
     {
-        private readonly Data _data;
+        private readonly OctopusFieldData _octopusFieldData;
 
-        public Service(Data data)
+        public GlowingOctopussesService(OctopusFieldData octopusFieldData)
         {
-            _data = data;
+            _octopusFieldData = octopusFieldData;
         }
 
         public object RunTask1() => CountFlashes(100);
@@ -18,7 +18,7 @@ namespace Business.Day11
 
         private long CountFlashes(int steps)
         {
-            var octopuses = _data.GetMap();
+            var octopuses = _octopusFieldData.GetMap();
             var flashed = 0L;
 
             for (int i = 1; i <= steps; i++)
@@ -31,7 +31,7 @@ namespace Business.Day11
 
         private long GetStep()
         {
-            var octopuses = _data.GetMap();
+            var octopuses = _octopusFieldData.GetMap();
             var totalCount = octopuses
                 .Select(x => x.Length)
                 .Sum();
@@ -50,7 +50,7 @@ namespace Business.Day11
         {
             Draw(octopuses);
             IncreaseAll(octopuses);
-            Draw(octopuses); 
+            Draw(octopuses);
             Flash(octopuses);
             Draw(octopuses);
             return ResetFlashing(octopuses);
@@ -94,8 +94,8 @@ namespace Business.Day11
                 {
                     var octopus = octopuses[adj._y][adj._x];
                     octopus.IncreaseEnergy();
-                    Draw(octopuses,true);
-                    if (octopus.Value >9)
+                    Draw(octopuses, true);
+                    if (octopus.Value > 9)
                     {
                         BoostAdjacent(octopuses, adj._x, adj._y);
                     }
@@ -153,7 +153,7 @@ namespace Business.Day11
                     {
                         if (isStep)
                         {
-                            Write(octopus.Value , ConsoleColor.Red);
+                            Write(octopus.Value, ConsoleColor.Red);
                         }
                         else
                         {
