@@ -36,7 +36,9 @@ namespace Application
 
         private static void Main(string[] args)
         {
+            Console.Beep();
             RunServices();
+            Console.Beep();
         }
 
         private static void RunServices()

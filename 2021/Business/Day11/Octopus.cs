@@ -7,25 +7,28 @@
             Value = val;
         }
 
+        public bool HasBoostedAdjacent { get; set; }
+
         public int Value { get; private set; }
 
-        public bool Changed { get; private set; }
+        public bool Boosted { get; private set; }
 
         public void SetUnchanged()
         {
-            Changed = false;
+            Boosted = false;
         }
 
         public void IncreaseEnergy()
         {
             Value++;
-            Changed = true;
+            Boosted = true;
         }
 
         public void Discharge()
         {
             Value = 0;
-            Changed = true;
+            Boosted = true;
+            HasBoostedAdjacent = false;
         }
     }
 }

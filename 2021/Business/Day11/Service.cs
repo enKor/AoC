@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks.Dataflow;
+using System.Linq;
 
 namespace Business.Day11
 {
@@ -12,21 +12,38 @@ namespace Business.Day11
             _data = data;
         }
 
-        public object RunTask1() => CountFlashes();
+        public object RunTask1() => CountFlashes(100);
 
-        public object RunTask2() => -1;
+        public object RunTask2() => GetStep();
 
-        private long CountFlashes()
+        private long CountFlashes(int steps)
         {
             var octopuses = _data.GetMap();
             var flashed = 0L;
 
-            for (int i = 1; i <= 100; i++)
+            for (int i = 1; i <= steps; i++)
             {
                 flashed += RunStep(octopuses);
             }
 
             return flashed;
+        }
+
+        private long GetStep()
+        {
+            var octopuses = _data.GetMap();
+            var totalCount = octopuses
+                .Select(x => x.Length)
+                .Sum();
+
+            var i = 1;
+            while (true)
+            {
+                if (RunStep(octopuses) == totalCount)
+                    return i;
+
+                i++;
+            }
         }
 
         private static long RunStep(Octopus[][] octopuses)
@@ -54,6 +71,9 @@ namespace Business.Day11
 
         private static void BoostAdjacent(Octopus[][] octopuses, int x, int y)
         {
+            if (octopuses[y][x].HasBoostedAdjacent) return;
+            octopuses[y][x].HasBoostedAdjacent = true;
+
             var adjacent = new (int _x, int _y)[]
             {
                 (x - 1, y - 1),
@@ -75,7 +95,7 @@ namespace Business.Day11
                     var octopus = octopuses[adj._y][adj._x];
                     octopus.IncreaseEnergy();
                     Draw(octopuses,true);
-                    if (octopus.Value == 10)
+                    if (octopus.Value >9)
                     {
                         BoostAdjacent(octopuses, adj._x, adj._y);
                     }
@@ -88,16 +108,17 @@ namespace Business.Day11
             Draw(octopuses);
         }
 
-        private static int ResetFlashing(Octopus[][] octs)
+        private static int ResetFlashing(Octopus[][] octopuses)
         {
             var flashing = 0;
-            for (int y = 0; y < octs.Length; y++)
-                for (int x = 0; x < octs[0].Length; x++)
+            for (int y = 0; y < octopuses.Length; y++)
+                for (int x = 0; x < octopuses[0].Length; x++)
                 {
-                    if (octs[y][x].Value > 9)
+                    var octopus = octopuses[y][x];
+                    if (octopus.Value > 9)
                     {
                         flashing++;
-                        octs[y][x].Discharge();
+                        octopus.Discharge();
                     }
                 }
 
@@ -115,7 +136,7 @@ namespace Business.Day11
 
         private static void Draw(Octopus[][] arr, bool isStep = false)
         {
-            //return;
+            return;
 
             for (var _y = 0; _y < arr.Length; _y++)
             {
@@ -123,9 +144,9 @@ namespace Business.Day11
                 {
                     var octopus = arr[_y][_x];
 
-                    if (octopus.Changed)
+                    if (octopus.Boosted)
                     {
-                        Write(isStep ? octopus.Value : 0, ConsoleColor.Blue);
+                        Write(octopus.Value, ConsoleColor.Blue);
                         octopus.SetUnchanged();
                     }
                     else if (octopus.Value > 9)
@@ -141,7 +162,7 @@ namespace Business.Day11
                     }
                     else
                     {
-                        Write(arr[_y][_x].Value, ConsoleColor.White);
+                        Write(arr[_y][_x].Value, ConsoleColor.Gray);
                     }
                 }
 
@@ -159,7 +180,8 @@ namespace Business.Day11
             Console.Write(Format(val));
             Console.ForegroundColor = defaultColor;
         }
-        private static string Format(int i) => $"{i,2:##} ";
+
+        private static string Format(int i) => i == 0 ? " 0 " : string.Format("{0,2:##}", i) + " ";
 
     }
 }
