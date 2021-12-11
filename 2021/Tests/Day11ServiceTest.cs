@@ -5,10 +5,19 @@ namespace Tests
     public class Day11ServiceTest : ServiceTestBase
     {
         public Day11ServiceTest() 
-            : base(new Service(new Data{Source=TestData}), -1, -1)
+            : base(new Service(new Data{Source=TestData}), 1653, 195)
         {
         }
 
-        private const string TestData = @"";
+        private const string TestData = @"5483143223
+2745854711
+5264556173
+6141336146
+6357385478
+4167524645
+2176841721
+6882881134
+4846848554
+5283751526";
     }
 }
