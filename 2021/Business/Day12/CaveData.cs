@@ -7,7 +7,7 @@ namespace Business.Day12
     {
         public CaveData()
         {
-            Source = TestData;
+            Source = SampleData;
         }
 
         public string Source { get; set; }
@@ -19,15 +19,7 @@ namespace Business.Day12
                 .ToArray();
 
 
-        private const string TestData = @"start-A
-start-b
-A-c
-A-b
-b-d
-A-end
-b-end";
-
-        private const string SampleData = @"EO-jc
+       private const string SampleData = @"EO-jc
 end-tm
 jy-FI
 ek-EO

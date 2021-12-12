@@ -34,66 +34,71 @@ namespace Business.Day12
             return paths.Count;
         }
 
-        // TODO
         private long WalkaboutWaysCount()
         {
             var paths = new Collection<string>();
 
-            GoThroughLonger("start", "start-", paths, false);
-            GoThroughLonger("start", "start-", paths, true);
+            GoThroughLonger("start", "start-", paths, null, false);
 
-            return paths.Count;
+            return paths.Distinct().Count();
         }
 
-        //TODO
-        private void GoThroughLonger(string start, string currentPath, ICollection<string> paths, bool tryDoubled)
+        private void GoThroughLonger(string start, string currentPath, ICollection<string> paths, string doubleCave, bool alreadyDouble)
         {
-            foreach (var target in GetTargets(start))
+            foreach (var cave in GetCaves(start))
             {
-                if (target == "start") continue;
-                if (tryDoubled)
+                var count = Regex.Match(currentPath, $"-{cave}-").Captures.Count;
+                var doubleSpecified = doubleCave != null && doubleCave == cave;
+                var couldBeDouble = char.IsLower(cave[0]) && !alreadyDouble && count == 1;
+
+                if (cave == "start") continue;
+                //if (currentPath.Contains($"{start}-{cave}") && !couldBeDouble) continue;
+                if (char.IsLower(cave[0]))
                 {
-                    if (currentPath.Contains($"{start}-{target}")) continue;
-                    if (char.IsLower(target[0]) && Regex.Matches(currentPath, $"-{target}-").Count < 2) continue;
-                }
-                else
-                {
-                    if (currentPath.Contains($"{start}-{target}")) continue;
-                    if (char.IsLower(target[0]) && Regex.Matches(currentPath, $"-{target}-").Count < 2) continue;
+                    if (alreadyDouble && count == 1) 
+                        continue;
+                    if (doubleSpecified && count == 2) 
+                        continue;
+                    //if(!doubleSpecified && !couldBeDouble) 
+                    //    continue;
                 }
 
-                if (target == "end")
+                if (cave == "end")
                 {
-                    paths.Add($"{currentPath}{target}");
+                    paths.Add($"{currentPath}{cave}");
                 }
                 else
                 {
-                    GoThroughLonger(target, $"{currentPath}{target}-", paths, true);
-                    GoThroughLonger(target, $"{currentPath}{target}-", paths, false);
+                    GoThroughLonger(
+                        cave,
+                        $"{currentPath}{cave}-", paths,
+                        couldBeDouble || doubleSpecified ? cave : null,
+                        couldBeDouble || alreadyDouble);
+
                 }
             }
         }
 
         private void GoThroughDirectly(string start, string currentPath, ICollection<string> paths)
         {
-            foreach (var target in GetTargets(start))
+            foreach (var cave in GetCaves(start))
             {
-                if (target == "start") continue;
-                if (currentPath.Contains($"{start}-{target}")) continue;
-                if (char.IsLower(target[0]) && currentPath.Contains($"-{target}-")) continue;
+                if (cave == "start") continue;
+                if (currentPath.Contains($"{start}-{cave}")) continue;
+                if (char.IsLower(cave[0]) && currentPath.Contains($"-{cave}-")) continue;
 
-                if (target == "end")
+                if (cave == "end")
                 {
-                    paths.Add($"{currentPath}{target}");
+                    paths.Add($"{currentPath}{cave}");
                 }
                 else
                 {
-                    GoThroughDirectly(target, $"{currentPath}{target}-", paths);
+                    GoThroughDirectly(cave, $"{currentPath}{cave}-", paths);
                 }
             }
         }
 
-        private IEnumerable<string> GetTargets(string from)
+        private IEnumerable<string> GetCaves(string from)
         {
             var a = _pairs.Where(x => x[0] == from).Select(x => x[1]);
             var b = _pairs.Where(x => x[1] == from).Select(x => x[0]);

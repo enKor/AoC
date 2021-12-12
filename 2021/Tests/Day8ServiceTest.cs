@@ -4,8 +4,8 @@ namespace Tests
 {
     public class Day8ServiceTest : ServiceTestBase
     {
-        public Day8ServiceTest() 
-            : base(new SevenSegmentSearchService(new SignalData{Source=TestData}), 26, 61229)
+        public Day8ServiceTest()
+            : base(new SevenSegmentSearchService(new SignalData { Source = TestData }), 26, 61229)
         {
         }
 
