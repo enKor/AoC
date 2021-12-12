@@ -33,7 +33,7 @@ namespace Application
             //new SmokeBasinService(new MapData()),
             //new SyntaxScoringService(new ChunkData()),
             //new GlowingOctopussesService(new OctopusFieldData()),
-            new Service(new Data()),
+            new CavePathwayService(new CaveData()),
         };
 
         private static void Main(string[] args)
