@@ -1,4 +1,4 @@
-﻿namespace Business.Day5
+﻿namespace Business
 {
     public record Vector2(int X, int Y);
 }

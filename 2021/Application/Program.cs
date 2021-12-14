@@ -5,6 +5,8 @@ using Business.Day1;
 using Business.Day10;
 using Business.Day11;
 using Business.Day12;
+using Business.Day13;
+using Business.Day14;
 using Business.Day2;
 using Business.Day3;
 using Business.Day4;
@@ -33,7 +35,9 @@ namespace Application
             //new SmokeBasinService(new MapData()),
             //new SyntaxScoringService(new ChunkData()),
             //new GlowingOctopussesService(new OctopusFieldData()),
-            new CavePathwayService(new CaveData()),
+            //new CavePathwayService(new CaveData()),
+            //new OrigamiService(new PaperData()),
+            new ChemService(new PolymerData()),
         };
 
         private static void Main(string[] args)

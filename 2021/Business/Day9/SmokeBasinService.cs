@@ -54,7 +54,7 @@ namespace Business.Day9
                         var size = GetBasinSize(arr, x, y);
                         basins.Add(size);
                         
-                        //DrawAll(arr, x, y);
+                        //DrawOne(arr, x, y);
 
                         Map.Add(((x, y), true));
                     }
