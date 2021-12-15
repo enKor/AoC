@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Business.Day14
+namespace Business.Day15
 {
-    public class PolymerData : IData
+    public class Data : IData
     {
-        public PolymerData()
+        public Data()
         {
             Source = TestData;
         }
