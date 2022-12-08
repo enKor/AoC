@@ -35,8 +35,28 @@ public class Day7
     [Test]
     public void Part2()
     {
+        const int diskCapacity = 70000000;
+        const int spaceNeeded = 30000000;
+        var freeSpace = diskCapacity - _tree.TotalSize;
 
-        //Assert.That(result, Is.EqualTo(19));
+        ListHierarchy(_tree);
+
+        var result = GetSpateToCleanup(freeSpace, spaceNeeded);
+        
+        Assert.That(result, Is.EqualTo(24933642));
+    }
+
+    private long GetSpateToCleanup(long freeSpace, int spaceNeeded)
+    {
+        foreach (var dir in list.OrderBy(x => x.TotalSize))
+        {
+            if (freeSpace + dir.TotalSize >= spaceNeeded)
+            {
+                return dir.TotalSize;
+            }
+        }
+
+        return 0;
     }
 
     private record AoCDir
