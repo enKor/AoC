@@ -6,6 +6,7 @@ namespace aoc;
 public class Day7
 {
     private readonly AoCDir _tree = new() { Name = "/" };
+    private List<AoCDir> list = new();
 
     [SetUp]
     public void SetUp()
@@ -20,6 +21,39 @@ public class Day7
             currentDir = Run(prompt, currentDir);
         }
 
+    }
+
+    [Test]
+    public void Part1()
+    {
+        ListHierarchy(_tree);
+        var result = list.Where(d => d.TotalSize <= 100000).Sum(x => x.TotalSize);
+
+        Assert.That(result, Is.EqualTo(95437));
+    }
+
+    [Test]
+    public void Part2()
+    {
+
+        //Assert.That(result, Is.EqualTo(19));
+    }
+
+    private record AoCDir
+    {
+        public string Name { get; set; }
+
+        public AoCDir? Parent { get; set; }
+        public List<AoCDir> Dirs { get; set; } = new();
+        public List<AoCFile> Files { get; set; } = new();
+
+        public long TotalSize => Files.Sum(f => f.Size) + Dirs.Sum(d => d.TotalSize);
+    }
+
+    private record AoCFile
+    {
+        public string Name { get; set; }
+        public long Size { get; set; }
     }
 
     private AoCDir Run(string[] prompt, AoCDir currentDir)
@@ -40,7 +74,7 @@ public class Day7
             {
                 resultingDir = currentDir.Dirs.Single(d => d.Name == dirName);
             }),
-            ["ls", var dirName] => new Action(() =>
+            ["$", "ls"] => new Action(() =>
             {
                 // nothing
             }),
@@ -48,7 +82,7 @@ public class Day7
             {
                 currentDir.Dirs.Add(new AoCDir
                 {
-                    Name = dirName, 
+                    Name = dirName,
                     Parent = currentDir
                 });
             }),
@@ -66,34 +100,12 @@ public class Day7
         return resultingDir;
     }
 
-    [Test]
-    public void Part1()
+    private void ListHierarchy(AoCDir currentDir)
     {
-        //var result = tree
-        //Assert.That(result, Is.EqualTo(95437));
-    }
-
-    [Test]
-    public void Part2()
-    {
-
-        //Assert.That(result, Is.EqualTo(19));
-    }
-
-    private class AoCDir
-    {
-        public string Name { get; set; }
-
-        public AoCDir? Parent { get; set; }
-        public List<AoCDir> Dirs { get; set; } = new();
-        public List<AoCFile> Files { get; set; } = new();
-
-        public long TotalSize => Files.Sum(f => f.Size) + Dirs.Sum(d => d.TotalSize);
-    }
-
-    private class AoCFile
-    {
-        public string Name { get; set; }
-        public long Size { get; set; }
+        list.Add(currentDir);
+        foreach (var dir in currentDir.Dirs)
+        {
+            ListHierarchy(dir);
+        }
     }
 }
