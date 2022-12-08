@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace aoc;
 
@@ -31,31 +30,57 @@ public class Day8
 
         for (int y = 1; y < _forrest.Length - 1; y++)
         {
+            var highest = 0;
+
             for (int x = 1; x < _forrest[y].Length - 1; x++)
             {
-                if (_forrest[y][x - 1] < _forrest[y][x]) trees.Add(new Tree(y, x));
-                if (_forrest[y][x - 1] > _forrest[y][x]) break;
-            }
+                if (x == 1) highest = _forrest[y][x - 1];
 
+                var current = _forrest[y][x];
+                if (highest < current)
+                {
+                    trees.Add(new Tree(y, x));
+                    highest = current;
+                }
+            }
             for (int x = _forrest[y].Length - 2; x > 0; x--)
             {
-                if (_forrest[y][x + 1] < _forrest[y][x]) trees.Add(new Tree(y, x));
-                if (_forrest[y][x + 1] > _forrest[y][x]) break;
+                if (x == 1) highest = _forrest[y][x + 1];
+
+                var current = _forrest[y][x];
+                if (highest < current)
+                {
+                    trees.Add(new Tree(y, x));
+                    highest = current;
+                }
             }
         }
 
         for (int x = 1; x < _forrest[0].Length - 1; x++)
         {
+            var highest = 0;
             for (int y = 1; y < _forrest[x].Length - 1; y++)
             {
-                if (_forrest[y - 1][x] < _forrest[y][x]) trees.Add(new Tree(y, x));
-                if (_forrest[y - 1][x] > _forrest[y][x]) break;
+                if (y == 1) highest = _forrest[y - 1][x];
+
+                var current = _forrest[y][x];
+                if (highest < current)
+                {
+                    trees.Add(new Tree(y, x));
+                    highest = current;
+                }
             }
 
             for (int y = _forrest[x].Length - 2; y > 0; y--)
             {
-                if (_forrest[y + 1][x] < _forrest[y][x]) trees.Add(new Tree(y, x));
-                if (_forrest[y + 1][x] > _forrest[y][x]) break;
+                if (y == _forrest[x].Length - 2) highest = _forrest[y + 1][x];
+
+                var current = _forrest[y][x];
+                if (highest < current)
+                {
+                    trees.Add(new Tree(y, x));
+                    highest = current;
+                }
             }
         }
 
