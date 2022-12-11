@@ -7,12 +7,11 @@ public partial class Day11
 {
     private class Monkey
     {
-        public int Id { get; init; }
         public List<(int Value, bool Processed)> Items { get; set; }
         public int DivideBy { get; init; }
         public Func<int, int> Operation { get; init; }
-        public Monkey OnTrue { get; set; }
-        public Monkey OnFalse { get; set; }
+        public int OnTrue { get; set; }
+        public int OnFalse { get; set; }
     }
 
     private Dictionary<int, Monkey> Monkeys = new();
@@ -20,8 +19,7 @@ public partial class Day11
     [SetUp]
     public void SetUp()
     {
-        var src = File.ReadAllLines("Day11.txt");
-        Monkeys = SetupMonkeys(src);
+        Monkeys = SetupMonkeys();
     }
 
     [Test]
