@@ -8,6 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Day11._tt.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Day11.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
     <PackageReference Include="NUnit" Version="3.13.2" />
   </ItemGroup>
@@ -15,6 +24,10 @@
   <ItemGroup>
     <None Update="Day11.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Day11.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Day11.generated.cs</LastGenOutput>
     </None>
     <None Update="Day10.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -44,9 +57,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Day10.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Day11.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Day12.txt">
@@ -118,6 +128,18 @@
     <None Update="Day9.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Day11.generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Day11.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

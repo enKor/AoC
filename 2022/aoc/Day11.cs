@@ -3,23 +3,25 @@
 namespace aoc;
 
 [TestFixture]
-public class Day11
+public partial class Day11
 {
     private class Monkey
     {
-        public List<int> Items { get; set; }
+        public int Id { get; init; }
+        public List<(int Value, bool Processed)> Items { get; set; }
         public int DivideBy { get; init; }
-        public Func<int,int> Operation{get; init; }
+        public Func<int, int> Operation { get; init; }
         public Monkey OnTrue { get; set; }
         public Monkey OnFalse { get; set; }
     }
 
+    private Dictionary<int, Monkey> Monkeys = new();
 
     [SetUp]
     public void SetUp()
     {
-        var src = File
-            .ReadAllLines("Day11.txt");
+        var src = File.ReadAllLines("Day11.txt");
+        Monkeys = SetupMonkeys(src);
     }
 
     [Test]
