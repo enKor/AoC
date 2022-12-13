@@ -7,20 +7,14 @@ public partial class Day11
 {
     /// <summary>
     /// generated method
-    /// </summary>     
-    private List<(int Value, bool IsProcessed)> CreateTuples(int[] arr) => 
-        arr.Select(x => (x, false)).ToList();
-            
-    /// <summary>
-    /// generated method
     /// </summary>      
     private Dictionary<int, Monkey> SetupMonkeys()
     {
-        return new Dictionary<int, Monkey> (){
+        return new Dictionary<int, Monkey> (){  
         
                 
                 { 0, new Monkey {
-                        Items = CreateTuples(new[]{ 79, 98 }),
+                        Items = new List<long>(){ 79, 98 },
                         Operation = (old) => old * 19,
                         DivideBy = 23,
                         OnTrue = 2,
@@ -29,7 +23,7 @@ public partial class Day11
                 },
                 
                 { 1, new Monkey {
-                        Items = CreateTuples(new[]{ 54, 65, 75, 74 }),
+                        Items = new List<long>(){ 54, 65, 75, 74 },
                         Operation = (old) => old + 6,
                         DivideBy = 19,
                         OnTrue = 2,
@@ -38,7 +32,7 @@ public partial class Day11
                 },
                 
                 { 2, new Monkey {
-                        Items = CreateTuples(new[]{ 79, 60, 97 }),
+                        Items = new List<long>(){ 79, 60, 97 },
                         Operation = (old) => old * old,
                         DivideBy = 13,
                         OnTrue = 1,
@@ -47,7 +41,7 @@ public partial class Day11
                 },
                 
                 { 3, new Monkey {
-                        Items = CreateTuples(new[]{ 74 }),
+                        Items = new List<long>(){ 74 },
                         Operation = (old) => old + 3,
                         DivideBy = 17,
                         OnTrue = 0,

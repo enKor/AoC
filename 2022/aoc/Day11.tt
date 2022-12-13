@@ -15,26 +15,20 @@ public partial class Day11
 {
     /// <summary>
     /// generated method
-    /// </summary>     
-    private List<(int Value, bool IsProcessed)> CreateTuples(int[] arr) => 
-        arr.Select(x => (x, false)).ToList();
-            
-    /// <summary>
-    /// generated method
     /// </summary>      
     private Dictionary<int, Monkey> SetupMonkeys()
     {
-        return new Dictionary<int, Monkey> (){
+        return new Dictionary<int, Monkey> (){  
         
         <#
         var src = File.ReadAllText(this.Host.ResolvePath("Day11.txt"));
 
         Regex regex = new Regex(@"(Monkey (\d+):
-Starting items: ([\d ,]+)
-Operation: new = ([\w\d+* ]+)
-Test: divisible by (\d+)
-If true: throw to monkey (\d+)
-If false: throw to monkey (\d+))",
+  Starting items: ([\d ,]+)
+  Operation: new = ([\w\d+* ]+)
+  Test: divisible by (\d+)
+    If true: throw to monkey (\d+)
+    If false: throw to monkey (\d+))",
             RegexOptions.Multiline);
 
         var m = regex.Matches(src);
@@ -43,7 +37,7 @@ If false: throw to monkey (\d+))",
         #>
         
                 { <#= m[i].Groups[2] #>, new Monkey {
-                        Items = CreateTuples(new[]{ <#= m[i].Groups[3] #> }),
+                        Items = new List<long>(){ <#= m[i].Groups[3] #> },
                         Operation = (old) => <#= m[i].Groups[4] #>,
                         DivideBy = <#= m[i].Groups[5] #>,
                         OnTrue = <#= m[i].Groups[6] #>,
