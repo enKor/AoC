@@ -76,6 +76,26 @@ public class Day12
     [Test]
     public void Part2()
     {
-        //Assert.That(result, Is.EqualTo(2713310158));
+        var start = new Point(0, 0);
+        var end = new Point(0, 0);
+
+        SetBasicPoint(ref start, ref end);
+
+        var aLetters = map
+            .SelectMany((r, row) => r
+                .Select((c, col) => c == 'a' ? new Point(row, col) : new Point(-1, -1)))
+            .Where(x => x != new Point(-1, -1));
+
+        int min = int.MaxValue;
+
+        foreach (var a in aLetters)
+        {
+            start = a;
+            distances[start] = 0;
+            ExploreNeighbours(0, start);
+            if (min > distances[end]) min = distances[end];
+        }
+
+        Assert.That(min, Is.EqualTo(29));
     }
 }
