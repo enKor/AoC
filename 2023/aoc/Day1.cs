@@ -1,7 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using System.IO.Pipes;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace aoc;
 
@@ -76,9 +73,16 @@ public class Day1
             var values = numbersDic.Keys
                 .Select(k => new
                 {
-                    Idx = c.IndexOf(k, StringComparison.InvariantCulture),
+                    Idx1st = c.IndexOf(k, StringComparison.InvariantCulture),
+                    IdxLast = c.LastIndexOf(k, StringComparison.InvariantCulture),
                     Key = k
                 })
+                .Select(x=>new []
+                {
+                    new {Idx=x.Idx1st,x.Key},
+                    new {Idx=x.IdxLast,x.Key},
+                })
+                .SelectMany(x=>x)
                 .Where(x => x.Idx >= 0)
                 .OrderBy(x => x.Idx)
                 .ToArray();
