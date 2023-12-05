@@ -14,7 +14,7 @@ public class Day2
     [Test]
     public void Part1()
     {
-        var sumGamesIds = File.ReadAllLines("Day2A.txt")
+        var sumGamesIds = File.ReadAllLines("Day2.txt")
             .Select(GetId)
             .Sum();
         
@@ -24,9 +24,19 @@ public class Day2
     [Test]
     public void Part2()
     {
-        
+        var sumGamesPowers = File.ReadAllLines("Day2.txt")
+            .Select(GetPower)
+            .Sum();
 
-        //Assert.That(sum, Is.EqualTo(281));
+        Assert.That(sumGamesPowers, Is.EqualTo(2286));
+    }
+
+    [Test]
+    public void GetPower_ValidGameTest()
+    {
+        var power = GetPower("Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green");
+
+        Assert.That(power, Is.EqualTo(48));
     }
 
     [Test]
@@ -77,17 +87,34 @@ public class Day2
         return id;
     }
 
-
-    private class Game
+    private static long GetPower(string x)
     {
-        public int Id { get; set; }
-        public List<Set> Sets { get; set; }
+        var split = x
+            .Replace(";", string.Empty)
+            .Replace(",", string.Empty)
+            .Split(' ', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
 
-        public class Set
+        long r = 0, g = 0, b = 0;
+
+        for (int i = 2; i < split.Length; i += 2)
         {
-            public int Red { get; set; }
-            public int Green { get; set; }
-            public int Blue { get; set; }
+            var value = int.Parse(split[i]);
+            switch (split[i + 1])
+            {
+                case "red":
+                    r = Math.Max(r, value);
+                    break;
+                case "green":
+                    g = Math.Max(g, value);
+                    break;
+                case "blue":
+                    b = Math.Max(b, value);
+                    break;
+            }
         }
+
+        var power = r * g * b;
+
+        return power;
     }
 }
