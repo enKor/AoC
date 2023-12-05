@@ -30,9 +30,17 @@ public class Day2
     }
 
     [Test]
-    public void GetIdTest()
+    public void GetId_ValidGameTest()
     {
         var id = GetId("Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green");
+
+        Assert.That(id, Is.EqualTo(1));
+    }
+
+    [Test]
+    public void GetId_InvalidGameTest()
+    {
+        var id = GetId("Game 1: 3 blue, 4 red; 13 red, 2 green, 6 blue; 2 green");
 
         Assert.That(id, Is.EqualTo(1));
     }
