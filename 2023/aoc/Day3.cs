@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics;
+using NUnit.Framework;
 
 namespace aoc;
 
@@ -26,6 +27,8 @@ public class Day3
         {
             if (length > 0 && IsAdjacent(row, _engine[row].Length - length, length))
             {
+                Debug.WriteLine(number.ToString());
+
                 sum += int.Parse(number);
             }
 
@@ -34,6 +37,8 @@ public class Day3
 
             for (int position = 0; position < _engine[row].Length; position++)
             {
+                Debug.WriteLine($"R:{row},C:{position}");
+
                 var ch = _engine[row][position];
                 if (char.IsDigit(ch))
                 {
@@ -44,6 +49,8 @@ public class Day3
                 {
                     if (length > 0 && IsAdjacent(row, position - length, length))
                     {
+                        Debug.WriteLine(number.ToString());
+
                         sum += int.Parse(number);
                     }
 
@@ -65,7 +72,7 @@ public class Day3
     private bool IsAdjacent(int row, int start, int length)
     {
         if (row > 0 && AdjacesSymbolInRow(row - 1, start, length)) return true;
-        if (row < _engine.Length && AdjacesSymbolInRow(row + 1, start, length)) return true;
+        if (row < _engine.Length - 1 && AdjacesSymbolInRow(row + 1, start, length)) return true;
         if (AdjacesSymbolInRow(row, start, length)) return true;
 
         return false;
